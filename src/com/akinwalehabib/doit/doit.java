@@ -20,7 +20,7 @@ public class doit extends Application {
     public void start(Stage primaryStage) throws Exception {
         Group group = new Group();
         // Add one child node to group
-         group.getChildren().add(new Button("First Button"));
+        // group.getChildren().add(new Button("First Button"));
         
         // Add many child nodes to group
         // All children are added at coordinate 0 , 0
@@ -29,8 +29,11 @@ public class doit extends Application {
         // using layouts or coordinates
         // Advised to use layouts, because coordinate is relative
         // to other nodes placement
-        // group.getChildren().addAll(new Button("First Button"),
-        //                            new Button("Second Button"));
+        Button b1 = new Button("First Button");
+        Button b2 = new Button("Second Button");
+        b1.setLayoutX(100);
+        b1.setLayoutY(150);
+        group.getChildren().addAll(b1, b2);
         
         Integer width = new Integer(300);
         Integer height = new Integer(400);
