@@ -8,7 +8,9 @@ package com.akinwalehabib.doit;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import javafx.scene.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.Scene;
 
 /**
  *
@@ -18,26 +20,34 @@ public class doit extends Application {
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Group group = new Group();
-        // Add one child node to group
-        // group.getChildren().add(new Button("First Button"));
+        GridPane grid = new GridPane();
+        grid.setGridLinesVisible(true);
+        grid.setHgap(10);
+        grid.setVgap(10);
         
-        // Add many child nodes to group
-        // All children are added at coordinate 0 , 0
-        // So they stack on top of each other 
-        // Except we instruct our application to do otherwise
-        // using layouts or coordinates
-        // Advised to use layouts, because coordinate is relative
-        // to other nodes placement
         Button b1 = new Button("First Button");
-        Button b2 = new Button("Second Button");
-        b1.setLayoutX(100);
-        b1.setLayoutY(150);
-        group.getChildren().addAll(b1, b2);
+        Button b2 = new Button("Long Second Button");
+        Button b3 = new Button("Third Button");
+        Button b4 = new Button("Fourth Button");
+        
+        GridPane.setConstraints(b1, 1, 1);
+        GridPane.setConstraints(b2, 2, 1);
+        GridPane.setConstraints(b3, 1, 2);
+        GridPane.setConstraints(b4, 2, 2);
+        
+        BorderPane borderpane = new BorderPane();
+        borderpane.setTop(new Button("top"));
+        borderpane.setBottom(new Button("bottom"));
+        borderpane.setLeft(new Button("left"));
+        borderpane.setCenter(new Button("Center"));
+        borderpane.setRight(new Button("left"));
+        GridPane.setConstraints(borderpane, 1, 3, 4, 2);
+        
+        grid.getChildren().addAll(b1, b2, b3, b4, borderpane);
         
         Integer width = new Integer(300);
         Integer height = new Integer(400);
-         Scene scene = new Scene(group, width, height);
+        Scene scene = new Scene(grid, width, height);
         /**
          * A few customizations for stage object
          */
