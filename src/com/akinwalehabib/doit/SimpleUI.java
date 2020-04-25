@@ -27,6 +27,7 @@ public class SimpleUI extends Application {
         // for that we need to create a FXMLLoader object
         FXMLLoader loader = new FXMLLoader(SimpleUI.class.getResource("simpleui.fxml"));
         HBox box = loader.load();
+        
         SimpleUIController controller = loader.getController();
         
         System.out.println(controller.textfield.getText());
