@@ -7,6 +7,8 @@ package com.akinwalehabib.doitapp;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,6 +18,7 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ProgressBar;
 
 /**
  * FXML Controller class
@@ -37,6 +40,9 @@ public class UiController implements Initializable {
 
     @FXML
     private TextField taskDescription;
+    
+    @FXML
+    private ProgressBar progressBar;
 
     @FXML
     private Button add;
@@ -55,6 +61,16 @@ public class UiController implements Initializable {
        progressSpinner.setValueFactory(
                new SpinnerValueFactory
                        .IntegerSpinnerValueFactory(0, 100, 0));
+       
+       progressSpinner.valueProperty().addListener((ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) -> {
+           if(newValue == 100) {
+               completedCheckbox.setSelected(true);
+           } else {
+               completedCheckbox.setSelected(false);
+           }
+           
+           progressBar.setProgress(1.0 * newValue/100);
+       });
     }    
     
 }

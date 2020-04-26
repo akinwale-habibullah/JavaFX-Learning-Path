@@ -4,6 +4,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -22,17 +23,10 @@
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.0" minWidth="0.0" prefWidth="5.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="307.0" minHeight="10.0" prefHeight="305.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="128.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="128.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="128.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="128.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="128.0" minHeight="3.0" prefHeight="21.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="128.0" minHeight="3.0" prefHeight="21.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="128.0" minHeight="3.0" prefHeight="21.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="115.0" minHeight="3.0" prefHeight="3.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="115.0" minHeight="3.0" prefHeight="3.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="115.0" minHeight="3.0" prefHeight="3.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="307.0" minHeight="10.0" prefHeight="240.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="128.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="128.0" minHeight="3.0" prefHeight="24.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="128.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="115.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="115.0" minHeight="3.0" prefHeight="3.0" vgrow="SOMETIMES" />
   </rowConstraints>
@@ -44,16 +38,17 @@
             <TableColumn prefWidth="72.0" text="Progress" />
         </columns>
       </TableView>
-      <ComboBox fx:id="priorities" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="11">
+      <ComboBox fx:id="priorities" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
          <children>
             <Label text="Progress" />
             <Spinner fx:id="progressSpinner" editable="true" />
             <CheckBox fx:id="completedCheckbox" mnemonicParsing="false" text="Completed" />
          </children>
       </HBox>
-      <TextField fx:id="taskDescription" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-      <Button fx:id="add" mnemonicParsing="false" text="Add" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-      <Button fx:id="cancel" mnemonicParsing="false" text="Cancel" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+      <Button fx:id="add" mnemonicParsing="false" prefHeight="25.0" prefWidth="396.0" text="Add" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <Button fx:id="cancel" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Cancel" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+      <ProgressBar fx:id="progressBar" prefHeight="27.0" prefWidth="414.0" progress="0.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <TextField fx:id="taskDescription" opacity="0.75" GridPane.columnIndex="2" GridPane.rowIndex="2" />
    </children>
 </GridPane>
