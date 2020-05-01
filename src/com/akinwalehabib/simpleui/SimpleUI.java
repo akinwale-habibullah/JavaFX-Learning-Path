@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.akinwalehabib.doit;
+package com.akinwalehabib.simpleui;
 
 import java.lang.*;
 import javafx.application.Application;
@@ -13,7 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
 
-import com.akinwalehabib.doit.SimpleUIController;
+import com.akinwalehabib.simpleui.SimpleUIController;
 
 /**
  *

@@ -5,49 +5,76 @@
  */
 package com.akinwalehabib.doitapp;
 
-import javafx.beans.Observable;
-import javafx.beans.property.ReadOnlyBooleanProperty;
-import javafx.beans.property.ReadOnlyBooleanWrapper;
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
+import javafx.beans.property.StringProperty;
+
 /**
  *
  * @author Habib
  */
 public class Task {
+    // We create all this properties so we can listen to changes
+    private final StringProperty priorityProperty = new SimpleStringProperty();
+    private final StringProperty descriptionProperty = new SimpleStringProperty();
+    private final ObjectProperty<Integer> progressProperty = new SimpleObjectProperty<>(0); 
+    private final ObjectProperty<Integer> idProperty = new SimpleObjectProperty<>(null);
+
+    public Task() {}
+    public Task(Integer id, String priority, String description, Integer progress){
+        this.idProperty.set(id);
+        this.priorityProperty.set(priority);
+        this.descriptionProperty.set(description);
+        this.progressProperty.set(progress);
+    }
     
-    public static void main(String[] args) {
-        SimpleIntegerProperty intProp = new SimpleIntegerProperty();
-        intProp.set(15);
-        System.out.println(intProp.get());
-        
-        SimpleStringProperty stringProp = new SimpleStringProperty("InitialValue");
-        System.out.println(stringProp.get());
-        stringProp.set("New Value");
-        System.out.println(stringProp.get());
-        
-        ReadOnlyBooleanWrapper readOnlyBooleanWrapper = new ReadOnlyBooleanWrapper(true);
-        ReadOnlyBooleanProperty readOnlyBoolProp = readOnlyBooleanWrapper.getReadOnlyProperty();
-        
-        System.out.println(readOnlyBoolProp.get());
-        readOnlyBooleanWrapper.set(false);
-        System.out.println(readOnlyBoolProp.get());
-        
-        intProp.addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
-            System.out.println("Integer Property is changed to " + newValue);
-        });
-        
-        intProp.addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
-            System.out.println("Listender 2: Integer Property is changed to " + newValue);
-        });
-        
-        intProp.addListener((Observable observable) -> {
-            System.out.println("Int property changed");
-        });
-        
-        intProp.set(10);
-        intProp.set(30);
+    public String getPriorityProperty() {
+        return this.priorityProperty.get();
+    }
+    public void setPriorityProperty(String value) {
+        this.priorityProperty.set(value);
+    }
+    // In JavaFX we add an additional method
+    // that returns the property
+    public StringProperty priorityProperty() {
+        return priorityProperty;
+    }
+
+    public String getDescriptionProperty() {
+        return this.descriptionProperty.get();
+    }
+    public void setDescriptionProperty(String value) {
+        this.descriptionProperty.set(value);
+    }
+    // In JavaFX we add an additional method
+    // that returns the property
+    public StringProperty descriptionProperty() {
+        return descriptionProperty;
+    }
+
+    public Integer getProgressProperty() {
+        return this.progressProperty.getValue();
+    }
+    public void setProgressProperty(Integer value) {
+        this.progressProperty.set(value);
+    }
+    // In JavaFX we add an additional method
+    // that returns the property
+    public ObjectProperty<Integer> progressProperty() {
+        return progressProperty;
+    }
+    
+    public Integer getIdProperty() {
+        return this.idProperty.getValue();
+    }
+    public void setIdProperty(Integer value) {
+        this.idProperty.set(value);
+    }
+    // In JavaFX we add an additional method
+    // that returns the property
+    public ObjectProperty<Integer> IdProperty() {
+        return idProperty;
     }
     
 }

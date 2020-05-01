@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.akinwalehabib.doit;
+package com.akinwalehabib.simpleui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

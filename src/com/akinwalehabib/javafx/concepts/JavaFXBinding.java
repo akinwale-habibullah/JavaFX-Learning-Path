@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.akinwalehabib.doitapp;
+package com.akinwalehabib.javafx.concepts;
 
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.DoubleBinding;
@@ -19,7 +19,7 @@ import javafx.beans.property.StringProperty;
  *
  * @author Habib
  */
-public class TaskBinding {
+public class JavaFXBinding {
     
     public static void main(String[] args) {
         StringProperty lastNameProp = new SimpleStringProperty();

@@ -33,9 +33,9 @@
    <children>
       <TableView fx:id="tasksTable" prefHeight="305.0" prefWidth="583.0" GridPane.columnIndex="1" GridPane.columnSpan="3">
         <columns>
-          <TableColumn prefWidth="93.0" text="Priority" />
-          <TableColumn prefWidth="407.0" text="Description" />
-            <TableColumn prefWidth="72.0" text="Progress" />
+          <TableColumn fx:id="priorityColumn" prefWidth="93.0" text="Priority" />
+          <TableColumn fx:id="descriptionColumn" prefWidth="397.0" text="Description" />
+            <TableColumn fx:id="progressColumn" prefWidth="82.0" text="Progress" />
         </columns>
       </TableView>
       <ComboBox fx:id="priority" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
