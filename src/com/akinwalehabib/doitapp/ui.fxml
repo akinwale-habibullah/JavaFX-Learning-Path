@@ -38,7 +38,7 @@
             <TableColumn prefWidth="72.0" text="Progress" />
         </columns>
       </TableView>
-      <ComboBox fx:id="priorities" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <ComboBox fx:id="priority" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
          <children>
             <Label text="Progress" />

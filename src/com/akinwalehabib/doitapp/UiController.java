@@ -5,9 +5,10 @@
  */
 package com.akinwalehabib.doitapp;
 
+import com.akinwalehabib.doitapp.model.TaskModel;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
+import javafx.beans.property.ReadOnlyIntegerProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
@@ -26,11 +27,13 @@ import javafx.scene.control.ProgressBar;
  * @author Habib
  */
 public class UiController implements Initializable {
+    private TaskModel currentTask = new  TaskModel();
+    
     @FXML
     private TableView<?> tasksTable;
 
     @FXML
-    private ComboBox<String> priorities;
+    private ComboBox<String> priority;
 
     @FXML
     private Spinner<Integer> progressSpinner;
@@ -57,20 +60,31 @@ public class UiController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       priorities.getItems().addAll("High", "Medium", "Low");
+       priority.getItems().addAll("High", "Medium", "Low");
        progressSpinner.setValueFactory(
                new SpinnerValueFactory
                        .IntegerSpinnerValueFactory(0, 100, 0));
        
        progressSpinner.valueProperty().addListener((ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) -> {
-           if(newValue == 100) {
+           if (newValue == 100) {
                completedCheckbox.setSelected(true);
            } else {
                completedCheckbox.setSelected(false);
            }
            
-           progressBar.setProgress(1.0 * newValue/100);
+           // System.out.println(currentTask.getDescriptionProperty());
+           // System.out.println(currentTask.getPriorityProperty());
+           // System.out.println(currentTask.getProgressProperty());
+           
+           // currentTask.setDescriptionProperty(newValue.toString());
        });
+       
+        ReadOnlyIntegerProperty intProgress = ReadOnlyIntegerProperty.readOnlyIntegerProperty(progressSpinner.valueProperty());
+        progressBar.progressProperty().bind(intProgress.divide(100.0));
+        
+        priority.valueProperty().bindBidirectional(currentTask.priorityProperty());
+        taskDescription.textProperty().bindBidirectional(currentTask.descriptionProperty());
+        progressSpinner.getValueFactory().valueProperty().bindBidirectional(currentTask.progressProperty());
     }    
     
 }
